@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apk update
+apk update && apk ugrade
 apk add \
   bash bash-doc bash-completion \
   curl \
@@ -11,12 +11,14 @@ apk add \
   wget \
   unzip \
   exa \
-  fd-find \
+  fd \
   ripgrep \
   ctags \
   bat \
   vim-scripts \
-  neovim
+  neovim \
+  nodejs \
+  npm
 
 # Install NerdFont Jetbrains Mono
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
