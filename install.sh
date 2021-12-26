@@ -24,7 +24,7 @@ sudo fc-cache -f -v
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 # Copy dotfiles
-cp -f ~/dotfiles/.bashrc ~/.bashrc
+cp -af ~/dotfiles/. ~/
 
 # Cleanup
 sudo apt-get autoremove -y
