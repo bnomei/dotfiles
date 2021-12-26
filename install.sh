@@ -1,7 +1,7 @@
 #!/bin/sh
 
 apk update
-apk add -y \
+apk add \
   curl \
   git \
   jq \
