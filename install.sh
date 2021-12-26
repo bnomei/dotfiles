@@ -2,7 +2,7 @@
 
 apk update
 apk add \
-  bash \
+  bash bash-doc bash-completion \
   curl \
   git \
   jq \
@@ -28,6 +28,9 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
 # Copy dotfiles
 cp -af /workspaces/.codespaces/.persistedshare/dotfiles/. ~/
+
+# MANUAL: change shell
+# https://www.cyberciti.biz/faq/alpine-linux-install-bash-using-apk-command/
 
 # Cleanup
 apk cache clean
