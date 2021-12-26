@@ -12,7 +12,9 @@ apt-get install -y \
   unzip \
   exa \
   fd-find \
-  ripgrep \ 
+  ripgrep \
+  ctags \
+  vim-scripts \
   neovim
 
 # does not work on webdevops docker images based on debian 10
