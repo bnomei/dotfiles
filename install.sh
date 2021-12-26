@@ -1,7 +1,7 @@
 #!/bin/sh
 
-apt-get update
-apt-get install -y \
+sudo apt-get update
+sudo apt-get install -y \
   curl \
   git \
   jq \
@@ -21,7 +21,7 @@ sudo unzip JetBrainsMono.zip -d /usr/share/fonts
 sudo fc-cache -f -v
 
 # https://starship.rs/
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+yes | sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 # Copy dotfiles
 cp -af ~/dotfiles/. ~/
