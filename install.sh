@@ -2,6 +2,7 @@
 
 apk update
 apk add \
+  bash \
   curl \
   git \
   jq \
