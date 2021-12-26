@@ -15,7 +15,6 @@ apk add \
   ripgrep \
   ctags \
   bat \
-  vim-scripts \
   neovim \
   nodejs \
   npm
