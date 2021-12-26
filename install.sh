@@ -1,8 +1,7 @@
 #!/bin/sh
 
-apt-get update
-apt-get -y install --no-install-recommends apt-utils dialog 2>&1
-apt-get install -y \
+apk update
+apk add -y \
   curl \
   git \
   jq \
@@ -14,12 +13,9 @@ apt-get install -y \
   fd-find \
   ripgrep \
   ctags \
+  bat \
   vim-scripts \
   neovim
-
-# does not work on webdevops docker images based on debian 10
-# apt-get install -y \
-#  bat
 
 # Install NerdFont Jetbrains Mono
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
@@ -33,4 +29,4 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 cp -af /workspaces/.codespaces/.persistedshare/dotfiles/. ~/
 
 # Cleanup
-apt-get autoremove -y
+apk cache clean
