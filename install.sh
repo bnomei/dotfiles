@@ -10,6 +10,8 @@ apk add \
   less \
   wget \
   unzip \
+  openrc \
+  openssh \
   exa \
   fd \
   ripgrep \
@@ -41,3 +43,5 @@ composer self-update --2
 composer global require squizlabs/php_codesniffer
 composer global require friendsofphp/php-cs-fixer
 
+# SSH
+rc-update add sshd
