@@ -35,3 +35,9 @@ cp -af /workspaces/.codespaces/.persistedshare/dotfiles/. ~/
 
 # Cleanup
 apk cache clean
+
+# PHP Dev
+composer self-update --2
+composer global require squizlabs/php_codesniffer
+composer global require friendsofphp/php-cs-fixer
+
