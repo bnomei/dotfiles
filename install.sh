@@ -15,6 +15,7 @@ apk add \
   exa \
   fd \
   ripgrep \
+  xsel \
   ctags \
   bat \
   neovim \
