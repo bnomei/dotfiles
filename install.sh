@@ -1,12 +1,6 @@
 #!/bin/sh
 
-apk update && apk ugrade
-
-# Get some packages from edge
-cp  /etc/apk/repositories  /etc/apk/repositories.bak
-echo "https://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-echo "https://dl-4.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
-apk update
+apk update && apk upgrade
 
 apk add --no-cache \
   bash bash-doc bash-completion \
@@ -25,12 +19,20 @@ apk add --no-cache \
   xsel \
   ctags \
   bat \
+  nodejs \
+  npm
+
+# Get some packages from edge
+cp  /etc/apk/repositories  /etc/apk/repositories.bak
+echo "https://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+echo "https://dl-4.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+apk update
+
+apk add --no-cache \
   neovim \
   neovim-doc \
   fzf-neovim \
-  nodejs \
-  npm \
-  python
+  python3
 
 cp /etc/apk/repositories.bak  /etc/apk/repositories
 apk cache clean
@@ -45,7 +47,7 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
 # NEOVIM
 python3 -m ensurepip --upgrade
-python3 -m pip install --user --upgrade pynvim
+python3 -m pip install --user --upgrade pip pynvim
 python -m pip cache purge
 npm install -g neovim
 
