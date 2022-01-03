@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Full Upgrade
+echo "https://dl-4.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+echo "https://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+
 apk update && apk ugrade
 apk add \
   bash bash-doc bash-completion \
@@ -19,6 +23,7 @@ apk add \
   ctags \
   bat \
   neovim \
+  fzf-neovim \
   nodejs \
   npm
 
@@ -33,7 +38,7 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 # Copy dotfiles
 cp -af /workspaces/.codespaces/.persistedshare/dotfiles/. ~/
 
-# MANUAL: change shell
+# MANUAL: set root pw and change shell
 # https://www.cyberciti.biz/faq/alpine-linux-install-bash-using-apk-command/
 
 # Cleanup
