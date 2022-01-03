@@ -1,11 +1,14 @@
 #!/bin/sh
 
-# Full Upgrade
-echo "https://dl-4.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
-echo "https://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-
 apk update && apk ugrade
-apk add \
+
+# Get some packages from edge
+cp  /etc/apk/repositories  /etc/apk/repositories.bak
+echo "https://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+echo "https://dl-4.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+apk update
+
+apk add --no-cache \
   bash bash-doc bash-completion \
   curl \
   git \
@@ -23,9 +26,14 @@ apk add \
   ctags \
   bat \
   neovim \
+  neovim-doc \
   fzf-neovim \
   nodejs \
-  npm
+  npm \
+  python
+
+cp /etc/apk/repositories.bak  /etc/apk/repositories
+apk cache clean
 
 # Install NerdFont Jetbrains Mono
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
@@ -35,19 +43,23 @@ fc-cache -f -v
 # https://starship.rs/
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
+# NEOVIM
+python3 -m ensurepip --upgrade
+python3 -m pip install --user --upgrade pynvim
+python -m pip cache purge
+npm install -g neovim
+
 # Copy dotfiles
 cp -af /workspaces/.codespaces/.persistedshare/dotfiles/. ~/
 
 # MANUAL: set root pw and change shell
 # https://www.cyberciti.biz/faq/alpine-linux-install-bash-using-apk-command/
 
-# Cleanup
-apk cache clean
-
 # PHP Dev
 composer self-update --2
 composer global require squizlabs/php_codesniffer
 composer global require friendsofphp/php-cs-fixer
+composer clear-cache
 
 # SSH
 rc-update add sshd
