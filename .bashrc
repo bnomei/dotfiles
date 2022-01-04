@@ -21,7 +21,7 @@ alias gd='git diff'
 # COMPOSER
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 alias c="composer"
-alias cda="composer dump-autoloader -o"
+alias cda="composer dump-autoload -o"
 
 # ARTISAN
 alias a="php artisan"
