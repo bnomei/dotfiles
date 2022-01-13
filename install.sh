@@ -48,7 +48,7 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 # NEOVIM
 python3 -m ensurepip --upgrade
 python3 -m pip install --user --upgrade pip pynvim
-python -m pip cache purge
+python3 -m pip cache purge
 npm install -g neovim
 
 # Copy dotfiles
