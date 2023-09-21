@@ -38,7 +38,7 @@ cp /etc/apk/repositories.bak  /etc/apk/repositories
 apk cache clean
 
 # Install NerdFont Jetbrains Mono
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
 unzip JetBrainsMono.zip -d /usr/share/fonts
 fc-cache -f -v
 
